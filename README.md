@@ -1,12 +1,12 @@
 # Magic Account
-Heaps Digital Ventures
+### Heaps Digital Ventures
 Based on the user stories defined below:
-● Define database schema for supporting functionality (UML or
+* Define database schema for supporting functionality (UML or
 similar)
-● Draft pseudo code for 1-2 controllers implementing the logic for
+* Draft pseudo code for 1-2 controllers implementing the logic for
 stories and explain what you would pay particular attention to.
 Start with the most important.
-● Outline what tests you would write and why
+* Outline what tests you would write and why
 Submit in zip or git repo. Approx. 3 hours.
 ### Definitions:
 #### Magic Account
