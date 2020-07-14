@@ -9,16 +9,16 @@ Start with the most important.
 ● Outline what tests you would write and why
 Submit in zip or git repo. Approx. 3 hours.
 ### Definitions:
-Magic Account
+#### Magic Account
 * A general term for the account you have in which your money is deposited. The same as
 “account” in a normal bank.
-Multiplied-Amount
+#### Multiplied-Amount
 * The amount in your Magic Account after any possible multiplication (as of now it is 3x) has
 taken place.
-Deposited-Amount
+#### Deposited-Amount
 * The amount of actual money you have deposited to the system. (If you now deposit 100 kr
 Deposited Amount, you will get 300 kr Multiplied-Amount).
-Promotion money
+#### Promotion money
 * Promotion money can be spent like any other money on the magic account.
 * Promotion money should be used before any other money deposited on the magic account.
 * Promotion money cannot be withdrawn.
