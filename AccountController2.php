@@ -63,11 +63,13 @@ class AccountController {
                     return "Error: Max deposit per day exceeded";
                 case Account::ERROR_MAX_DEPOSITED_AMOUNT:
                     return "Error: Max deposited amount exceeded";
+                case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
+                    return "Error: amount not an integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
                     return "Error: Unknown error";                                
-            }
+                }
         } catch(Exception $e) {
             return "Error: ". $e;
         }
@@ -86,6 +88,8 @@ class AccountController {
                     return "Success";
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to withdraw the requested amount";
+                case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
+                    return "Error: amount not an integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
@@ -115,6 +119,8 @@ class AccountController {
                     return "Success";
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to authorize payment";
+                case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
+                    return "Error: amount in payment_request not an integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
@@ -134,8 +140,15 @@ class AccountController {
             return "Error: Invalid account";
         }
         try {
-            Account::addPromotion($accountID, $amount, $message); // This function should request an update of the summary amounts after it has run
-            return "Success";
+            $status = Account::addPromotion($accountID, $amount, $message); // This function should request an update of the summary amounts after it has run
+            switch ($status) {
+                case Account::SUCCESS: 
+                    return "Success";
+                case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
+                    return "Error: amount in not an integer";
+                default:
+                    return "Error: Unknown error";                                
+            }
         } catch (Exception $e) {
             return "Error: ".$e;
         }
