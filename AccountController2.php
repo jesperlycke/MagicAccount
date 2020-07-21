@@ -64,7 +64,7 @@ class AccountController {
                 case Account::ERROR_MAX_DEPOSITED_AMOUNT:
                     return "Error: Max deposited amount exceeded";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
-                    return "Error: amount not an integer";
+                    return "Error: amount not a positive integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
@@ -89,7 +89,7 @@ class AccountController {
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to withdraw the requested amount";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
-                    return "Error: amount not an integer";
+                    return "Error: amount not a positive integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
@@ -120,7 +120,7 @@ class AccountController {
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to authorize payment";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
-                    return "Error: amount in payment_request not an integer";
+                    return "Error: amount in payment_request not a postive integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:
                     return "Error: Authorization failure";
                 default:
@@ -145,7 +145,7 @@ class AccountController {
                 case Account::SUCCESS: 
                     return "Success";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
-                    return "Error: amount in not an integer";
+                    return "Error: amount in not a positive integer";
                 default:
                     return "Error: Unknown error";                                
             }
