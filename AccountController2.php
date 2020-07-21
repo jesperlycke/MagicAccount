@@ -63,6 +63,8 @@ class AccountController {
                     return "Error: Max deposit per day exceeded";
                 case Account::ERROR_MAX_DEPOSITED_AMOUNT:
                     return "Error: Max deposited amount exceeded";
+                case Account::ERROR_AUTHORIZATION_FAILURE:
+                    return "Error: Authorization failure";
                 default:
                     return "Error: Unknown error";                                
             }
@@ -84,6 +86,8 @@ class AccountController {
                     return "Success";
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to withdraw the requested amount";
+                case Account::ERROR_AUTHORIZATION_FAILURE:
+                    return "Error: Authorization failure";
                 default:
                     return "Error: Unknown error";                                
             }
@@ -111,6 +115,8 @@ class AccountController {
                     return "Success";
                 case Account::ERROR_NOT_ENOUGH_MONEY_IN_ACCOUNT:
                     return "Error: Not enough money in account to authorize payment";
+                case Account::ERROR_AUTHORIZATION_FAILURE:
+                    return "Error: Authorization failure";
                 default:
                     return "Error: Unknown error";                                
             }
