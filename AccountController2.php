@@ -61,8 +61,8 @@ class AccountController {
                     return "Success";
                 case Account::ERROR_MAX_DEPOSIT_PER_DAY:
                     return "Error: Max deposit per day exceeded";
-                case Account::ERROR_MAX_DEPOSITED_AMOUNT:
-                    return "Error: Max deposited amount exceeded";
+                case Account::ERROR_DEPOSITED_AMOUNT:
+                    return "Error: Wrong deposited amount";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
                     return "Error: amount not a positive integer";
                 case Account::ERROR_AUTHORIZATION_FAILURE:

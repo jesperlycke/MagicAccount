@@ -4,7 +4,7 @@ class AccountController {
     
     const MAGIC_MULTIPLIER = 3;
     const MAX_DEPOSITED_AMOUNT = 50000; // Using integer not float for amounts
-    const MAX_DEPOSIT_PER_DAY = 10000; // Using integer not float for amounts
+    const DEPOSIT_PER_DAY = 10000; // Using integer not float for amounts
     const CURRENCY_FORMAT = "da_DK";
     private $account = null;
     private $current_fmt = numfmt_create( CURRENCY_FORMAT, NumberFormatter::CURRENCY );
@@ -61,13 +61,9 @@ class AccountController {
             return "Error: No account found";
         }
         // Checking to see if the deposit would break any of the business rules
-        if($amount > MAX_DEPOSIT_PER_DAY)  {
-            return "Error: Not allowed to deposit more that ". $this->current_fmt(MAX_DEPOSIT_PER_DAY/100) ." per day";
+        if($amount <> DEPOSIT_PER_DAY)  {
+            return "Error: Not allowed to deposit other than ". $this->current_fmt(DEPOSIT_PER_DAY/100) ." per day";
         }
-        $deposited_today = $this->account->getDepositedToday(); // The Deposited-amount that went into the account this calendar day
-        if(($amount + $deposited_today) > MAX_DEPOSIT_PER_DAY) {
-            return "Error: Not allowed to deposit more that ". $this->current_fmt(MAX_DEPOSIT_PER_DAY/100) ." per day. Already a deposit of ". $this->current_fmt($deposited_today/100) ." to this account today";
-        } 
         $current_deposit = $this->account->getCurrentDepositBalance(); // The Deposited-amount that is currently in the account
         if(($amount + $current_deposit) > MAX_DEPOSITED_AMOUNT) {
             return "Error: The account is not allowed to hold more than ". $this->current_fmt(MAX_DEPOSITED_AMOUNT/100);

@@ -30,8 +30,7 @@ Also we need to check the business rules for deposites are enforced.
 * Try to deposit amount that is a float
 * Try to deposit amount that is negative
 * Try to deposit amount that is null
-* Try to deposit an amount above the max deposit for one day
-* Try to deposit an amount that bringes the total deposit for today above the max
+* Try to deposit an amount different from the deposit for one day
 * Try to deposit an amount that would bring the total over max allowed for the account
 * Try to deposit a legal amount and check that the tables reflect this deposit
 
