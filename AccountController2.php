@@ -59,8 +59,8 @@ class AccountController {
             switch ($status) {
                 case Account::SUCCESS: 
                     return "Success";
-                case Account::ERROR_MAX_DEPOSIT_PER_DAY:
-                    return "Error: Max deposit per day exceeded";
+                case Account::ERROR_MAX_DEPOSITED:
+                    return "Error: Max deposited exceeded";
                 case Account::ERROR_DEPOSITED_AMOUNT:
                     return "Error: Wrong deposited amount";
                 case Account::ERROR_AMOUNT_NOT_AN_INTEGER:
